@@ -3,7 +3,7 @@
 <form #surveyForm="ngForm" (ngSubmit)="onSubmit()">
   <h2>Secțiunea 0: Întrebări de Identificare</h2>
 
-  <label for="age" class="survey-label">Vârstă:</label>
+  <label style="text-align: center;" for="age" class="survey-label">Vârstă:</label>
   <select [(ngModel)]="surveyData.age" name="age" id="age" class="survey-select">
     <option value="<18" class="survey-option">Sub 18 ani</option>
     <option value="18-25" class="survey-option">18-25 ani</option>
@@ -13,14 +13,14 @@
     <option value=">65" class="survey-option">Peste 65 ani</option>
   </select>
 
-  <label for="gender" class="survey-label">Gen:</label>
+  <label style="text-align: center;" for="gender" class="survey-label">Gen:</label>
   <select [(ngModel)]="surveyData.gender" name="gender" id="gender" class="survey-select">
     <option value="masculin" class="survey-option">Masculin</option>
     <option value="feminin" class="survey-option">Feminin</option>
     <option value="Altul" class="survey-option">Altul</option>
   </select>
 
-  <label for="education" class="survey-label">Nivel de educație:</label>
+  <label style="text-align: center;" for="education" class="survey-label">Nivel de educație:</label>
   <select [(ngModel)]="surveyData.education" name="education" id="education" class="survey-select">
     <option value="faraStudii" class="survey-option">Fără studii</option>
     <option value="studiiMedii" class="survey-option">Studii medii</option>
@@ -29,7 +29,7 @@
     <option value="studiiPostuniversitare" class="survey-option">Studii postuniversitare</option>
   </select>
 
-  <label for="sector" class="survey-label">În ce sector al capitalei locuiți?</label>
+  <label style="text-align: center;" for="sector" class="survey-label">În ce sector al capitalei locuiți?</label>
   <select [(ngModel)]="surveyData.sector" name="sector" id="sector" class="survey-select">
     <option value="sector1" class="survey-option">Sector 1</option>
     <option value="sector2" class="survey-option">Sector 2</option>
@@ -42,11 +42,13 @@
     <option value="nuInBucuresti" class="survey-option">Nu locuiesc în București</option>
   </select>
 
-  <label for="cartierLocuit">În ce cartier al Bucureștiului locuiți?</label>
-  <textarea [(ngModel)]="surveyData.neighborhood" name="neighborhood" id="neighborhood" class="survey-textarea"></textarea>
-  
+  <label style="text-align: center;" for="cartierLocuit">În ce cartier al Bucureștiului locuiți?</label>
+  <textarea [(ngModel)]="surveyData.neighborhood" name="neighborhood" id="neighborhood"
+    class="survey-textarea"></textarea>
 
-  <label for="residenceDuration" class="survey-label">De cât timp locuiți în capitală?</label>
+
+  <label style="text-align: center;" for="residenceDuration" class="survey-label">De cât timp locuiți în
+    capitală?</label>
   <select [(ngModel)]="surveyData.residenceDuration" name="residenceDuration" id="residenceDuration"
     class="survey-select">
     <option value="<1An" class="survey-option">Sub 1 an</option>
@@ -56,7 +58,8 @@
     <option value="intotdeauna" class="survey-option">Întotdeauna</option>
   </select>
 
-  <label for="mainTransport" class="survey-label">Care este principala modalitate de transport pe care o
+  <label style="text-align: center;" for="mainTransport" class="survey-label">Care este principala modalitate de
+    transport pe care o
     folosiți?</label>
   <select [(ngModel)]="surveyData.mainTransport" name="mainTransport" id="mainTransport" class="survey-select">
     <option value="masinaPersonala" class="survey-option">Mașină personală</option>
@@ -68,7 +71,7 @@
   </select>
 
   <h2>Secțiunea 1: Trafic</h2>
-  <label>Cât de des întâmpinați probleme din cauza traficului aglomerat?</label>
+  <label style="text-align: center;">Cât de des întâmpinați probleme din cauza traficului aglomerat?</label>
   <select [(ngModel)]="surveyData.trafficIssues" name="trafficIssues">
     <option value="Niciodată">Niciodată</option>
     <option value="De câteva ori pe lună">De câteva ori pe lună</option>
@@ -76,7 +79,7 @@
     <option value="De mai multe ori pe săptămână">De mai multe ori pe săptămână</option>
   </select>
 
-  <label>Cât timp petreceți în trafic zilnic, în medie?</label>
+  <label style="text-align: center;">Cât timp petreceți în trafic zilnic, în medie?</label>
   <select [(ngModel)]="surveyData.timeInTraffic" name="timeInTraffic">
     <option value="< 30 min">Sub 30 de minute</option>
     <option value="30-60 min">30-60 de minute</option>
@@ -84,32 +87,35 @@
     <option value=">2 ore">Peste 2 ore</option>
   </select>
 
-  <label>Pe o scară de la 1 la 10, cât de ușor este să găsiți un loc de parcare în apropierea locuinței
+  <label style="text-align: center;">Pe o scară de la 1 la 10, cât de ușor este să găsiți un loc de parcare în
+    apropierea locuinței
     dumneavoastră?</label>
-    <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-      <div *ngFor="let value of [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10']" style="text-align: center;">
-        <label>
-          <span style="display: block; margin-bottom: 5px;">{{ value }}</span>
-          <input type="radio" [(ngModel)]="surveyData.parkingEase" [value]="value"
-            [id]="'parkingEase' + value" name="parkingEase" />
-        </label>
-      </div>
+  <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+    <div *ngFor="let value of [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10']" style="text-align: center;">
+      <label>
+        <span style="display: block; margin-bottom: 5px;">{{ value }}</span>
+        <input type="radio" [(ngModel)]="surveyData.parkingEase" [value]="value" [id]="'parkingEase' + value"
+          name="parkingEase" />
+      </label>
     </div>
+  </div>
 
-  <label>Pe o scară de la 1 la 10, cât de ușor este să găsiți un loc de parcare în apropierea centrului
+  <label style="text-align: center;">Pe o scară de la 1 la 10, cât de ușor este să găsiți un loc de parcare în
+    apropierea centrului
     orașului?</label>
-    <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-      <div *ngFor="let value of [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10']" style="text-align: center;">
-        <label>
-          <span style="display: block; margin-bottom: 5px;">{{ value }}</span>
-          <input type="radio" [(ngModel)]="surveyData.cityCenterParkingEase" [value]="value"
-            [id]="'cityCenterParkingEase' + value" name="cityCenterParkingEase" />
-        </label>
-      </div>
+  <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+    <div *ngFor="let value of [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10']" style="text-align: center;">
+      <label>
+        <span style="display: block; margin-bottom: 5px;">{{ value }}</span>
+        <input type="radio" [(ngModel)]="surveyData.cityCenterParkingEase" [value]="value"
+          [id]="'cityCenterParkingEase' + value" name="cityCenterParkingEase" />
+      </label>
     </div>
-  
+  </div>
 
-  <label>Cât de des vă simțiți nevoit să parcați/staționați în locuri ilegale din cauza lipsei locurilor de parcare? (Pe
+
+  <label style="text-align: center;">Cât de des vă simțiți nevoit să parcați/staționați în locuri ilegale din cauza
+    lipsei locurilor de parcare? (Pe
     trotuar, piste de biciclete, pe trecerile de pietoni, etc.)</label>
   <select [(ngModel)]="surveyData.illegalParking" name="illegalParking">
     <option value="Niciodată">Niciodată</option>
@@ -118,7 +124,7 @@
     <option value="De mai multe ori pe săptămână">De mai multe ori pe săptămână</option>
   </select>
 
-  <label>Cât de des parcați în parcări subterane/supraetajate</label>
+  <label style="text-align: center;">Cât de des parcați în parcări subterane/supraetajate</label>
   <select [(ngModel)]="surveyData.undergroundParking" name="undergroundParking">
     <option value="Niciodată">Niciodată</option>
     <option value="De câteva ori pe lună">De câteva ori pe lună</option>
@@ -126,15 +132,17 @@
     <option value="De mai multe ori pe săptămână">De mai multe ori pe săptămână</option>
   </select>
 
-  <label>Care considerați că este cea mai mare problemă legată de trafic în capitală?</label>
+  <label style="text-align: center;">Care considerați că este cea mai mare problemă legată de trafic în
+    capitală?</label>
   <textarea type="text" [(ngModel)]="surveyData.biggestTrafficProblem" name="biggestTrafficProblem"></textarea>
 
-  <label>Îmbunătățirea principală pe care o doriți?</label>
+  <label style="text-align: center;">Îmbunătățirea principală pe care o doriți?</label>
   <textarea type="text" [(ngModel)]="surveyData.trafficImprovements" name="trafficImprovements"></textarea>
 
   <h2>Secțiunea 3: Piste de Biciclete și Transportul Public</h2>
 
-  <label>Pe o scară de la 1 la 10, cât de mulțumit sunteți de infrastructura pistelor de biciclete?</label>
+  <label style="text-align: center;">Pe o scară de la 1 la 10, cât de mulțumit sunteți de infrastructura pistelor de
+    biciclete?</label>
   <div style="display: flex; justify-content: space-between; margin-top: 10px;">
     <div *ngFor="let value of [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10']" style="text-align: center;">
       <label>
@@ -146,7 +154,8 @@
   </div>
 
 
-  <label>Pe o scară de la 1 la 10, care este opinia dumneavoastră despre siguranța bicicliștilor în București?</label>
+  <label style="text-align: center;">Pe o scară de la 1 la 10, care este opinia dumneavoastră despre siguranța
+    bicicliștilor în București?</label>
   <div style="display: flex; justify-content: space-between; margin-top: 10px;">
     <div *ngFor="let value of [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10']" style="text-align: center;">
       <label style="display: block;">
@@ -157,7 +166,8 @@
     </div>
   </div>
 
-  <label>Pe o scară de la 1 la 10, cât de mulțumit sunteți de curățenia în transportul public?</label>
+  <label style="text-align: center;">Pe o scară de la 1 la 10, cât de mulțumit sunteți de curățenia în transportul
+    public?</label>
   <div style="display: flex; justify-content: space-between; margin-top: 10px;">
     <div *ngFor="let value of [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10']" style="text-align: center;">
       <label style="display: block;">
@@ -169,30 +179,50 @@
   </div>
 
 
-  <label>Considerați că sunt suficiente autobuze?</label>
-  <select [(ngModel)]="surveyData.publicTransportSufficiency" name="publicTransportSufficiency">
-    <option value="Da">Da</option>
-    <option value="Nu">Nu</option>
-  </select>
+  <label style="text-align: center;">Considerați că sunt suficiente autobuze?</label>
+  <div class="radio-group">
+    <label>
+      <span>Da</span>
+      <input type="radio" [(ngModel)]="surveyData.publicTransportSufficiency" name="publicTransportSufficiency" value="Da">
+    </label>
+    <label>
+      <span>Nu</span>
+      <input type="radio" [(ngModel)]="surveyData.publicTransportSufficiency" name="publicTransportSufficiency" value="Nu">
+    </label>
+  </div>
+  
+  <label style="text-align: center;">Credeţi că rețeaua de metrou din București acoperă, în mod adecvat, nevoile orașului?</label>
+  <div class="radio-group">
+    <label>
+      <span>Da</span>
+      <input type="radio" [(ngModel)]="surveyData.metroStationsNumber" name="metroStationsNumber" value="Da">
+    </label>
+    <label>
+      <span>Nu</span>
+      <input type="radio" [(ngModel)]="surveyData.metroStationsNumber" name="metroStationsNumber" value="Nu">
+    </label>
+  </div>
+  
+  <label style="text-align: center;">Ați prefera utilizarea bicicletei dacă infrastructura ar fi mai bună?</label>
+  <div class="radio-group">
+    <label>
+      <span>Da</span>
+      <input type="radio" [(ngModel)]="surveyData.preferBikeIfBetterInfrastructure" name="preferBikeIfBetterInfrastructure" value="Da">
+    </label>
+    <label>
+      <span>Nu</span>
+      <input type="radio" [(ngModel)]="surveyData.preferBikeIfBetterInfrastructure" name="preferBikeIfBetterInfrastructure" value="Nu">
+    </label>
+  </div>
+  
 
-  <label>Credeţi că rețeaua de metrou din București acoperă, în mod adecvat, nevoile orașului?</label>
-  <select [(ngModel)]="surveyData.metroStationsNumber" name="metroStationsNumber">
-    <option value="Da">Da</option>
-    <option value="Nu">Nu</option>
-  </select>
-
-  <label>Ați prefera utilizarea bicicletei dacă infrastructura ar fi mai bună?</label>
-  <select [(ngModel)]="surveyData.preferBikeIfBetterInfrastructure" name="preferBikeIfBetterInfrastructure">
-    <option value="Da">Da</option>
-    <option value="Nu">Nu</option>
-  </select>
-
-  <label>Îmbunătățirea principală pe care o doriți?</label>
+  <label style="text-align: center;">Îmbunătățirea principală pe care o doriți?</label>
   <textarea type="text" [(ngModel)]="surveyData.bikeImprovements" name="bikeImprovements"></textarea>
 
   <h2>Secțiunea 4: Cartiere Rezidențiale</h2>
 
-  <label>Pe o scară de la 1 la 10, cât de mulțumit sunteți de calitatea vieții în cartier?</label>
+  <label style="text-align: center;">Pe o scară de la 1 la 10, cât de mulțumit sunteți de calitatea vieții în
+    cartier?</label>
   <div style="display: flex; justify-content: space-between; margin-top: 10px;">
     <div *ngFor="let value of [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10'] " style="text-align: center;">
       <label style="display: block;">
@@ -203,50 +233,76 @@
     </div>
   </div>
 
-
-  <label>Credeți că locuințele și clădirile din cartierul dumneavoastră sunt construite legal?</label>
-  <select [(ngModel)]="surveyData.legalConstruction" name="legalConstruction">
-    <option value="Da">Da</option>
-    <option value="Nu">Nu</option>
-  </select>
-
-  <label>Este suficient spațiu pentru trotuare în cartierul dumneavoastră?</label>
-  <select [(ngModel)]="surveyData.sidewalkSpace" name="sidewalkSpace">
-    <option value="Da">Da</option>
-    <option value="Nu">Nu</option>
-  </select>
-
-  <label>Este suficient spațiu pentru carosabil în cartierul dumneavoastră?</label>
-  <select [(ngModel)]="surveyData.roadSpace" name="roadSpace">
-    <option value="Da">Da</option>
-    <option value="Nu">Nu</option>
-  </select>
-
-  <label>Există suficiente locuri acoperite de soare în cartierul dumneavoastră?</label>
-  <select [(ngModel)]="surveyData.sunCoveredAreas" name="sunCoveredAreas">
-    <option value="Da">Da</option>
-    <option value="Nu">Nu</option>
-  </select>
-
-  <label>Există bănci disponibile pentru odihnă în cartierul dumneavoastră?</label>
-  <select [(ngModel)]="surveyData.benchesAvailability" name="benchesAvailability">
-    <option value="Da">Da</option>
-    <option value="Nu">Nu</option>
-  </select>
-
-  <label>Considerați că poliția ia măsuri suficiente cu privire la parcarea ilegală în cartierul dumneavoastră?</label>
-  <select [(ngModel)]="surveyData.illegalParkingMeasures" name="illegalParkingMeasures">
-    <option value="Da">Da</option>
-    <option value="Nu">Nu</option>
-  </select>
+  <label style="text-align: center;">Credeți că locuințele și clădirile din cartierul dumneavoastră sunt construite legal?</label>
+  <div class="radio-group">
+    <label>
+      <span>Da</span>
+      <input type="radio" [(ngModel)]="surveyData.legalConstruction" name="legalConstruction" value="Da">
+    </label>
+    <label>
+      <span>Nu</span>
+      <input type="radio" [(ngModel)]="surveyData.legalConstruction" name="legalConstruction" value="Nu">
+    </label>
+  </div>
+  
+  <label style="text-align: center;">Este suficient spațiu pentru carosabil în cartierul dumneavoastră?</label>
+  <div class="radio-group">
+    <label>
+      <span>Da</span>
+      <input type="radio" [(ngModel)]="surveyData.roadSpace" name="roadSpace" value="Da">
+    </label>
+    <label>
+      <span>Nu</span>
+      <input type="radio" [(ngModel)]="surveyData.roadSpace" name="roadSpace" value="Nu">
+    </label>
+  </div>
+  
+  <label style="text-align: center;">Există suficiente locuri acoperite de soare în cartierul dumneavoastră?</label>
+  <div class="radio-group">
+    <label>
+      <span>Da</span>
+      <input type="radio" [(ngModel)]="surveyData.sunCoveredAreas" name="sunCoveredAreas" value="Da">
+    </label>
+    <label>
+      <span>Nu</span>
+      <input type="radio" [(ngModel)]="surveyData.sunCoveredAreas" name="sunCoveredAreas" value="Nu">
+    </label>
+  </div>
+  
+  <label style="text-align: center;">Există bănci disponibile pentru odihnă în cartierul dumneavoastră?</label>
+  <div class="radio-group">
+    <label>
+      <span>Da</span>
+      <input type="radio" [(ngModel)]="surveyData.benchesAvailability" name="benchesAvailability" value="Da">
+    </label>
+    <label>
+      <span>Nu</span>
+      <input type="radio" [(ngModel)]="surveyData.benchesAvailability" name="benchesAvailability" value="Nu">
+    </label>
+  </div>
+  
+  <label style="text-align: center;">Considerați că poliția ia măsuri suficiente cu privire la parcarea ilegală în cartierul dumneavoastră?</label>
+  <div class="radio-group">
+    <label>
+      <span>Da</span>
+      <input type="radio" [(ngModel)]="surveyData.illegalParkingMeasures" name="illegalParkingMeasures" value="Da">
+    </label>
+    <label>
+      <span>Nu</span>
+      <input type="radio" [(ngModel)]="surveyData.illegalParkingMeasures" name="illegalParkingMeasures" value="Nu">
+    </label>
+  </div>
+  
 
   <h2>Secțiunea 5: Încheiere</h2>
 
-  <label>Există alte probleme sau aspecte care nu au fost abordate în acest sondaj și pe care le considerați
+  <label style="text-align: center;">Există alte probleme sau aspecte care nu au fost abordate în acest sondaj și pe
+    care le considerați
     importante?</label>
   <textarea [(ngModel)]="surveyData.otherIssues" name="otherIssues"></textarea>
 
-  <label>Ați dori să mai adăugați ceva despre experiența dumneavoastră legată de subiectele abordate în acest
+  <label style="text-align: center;">Ați dori să mai adăugați ceva despre experiența dumneavoastră legată de subiectele
+    abordate în acest
     sondaj?</label>
   <textarea [(ngModel)]="surveyData.additionalExperience" name="additionalExperience"></textarea>
 
